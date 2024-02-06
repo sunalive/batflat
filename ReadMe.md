@@ -2,14 +2,15 @@
 
 The original repo is no longer maintained so this is forked with permission from the owner of BatFlat. 
 
-Below are few changes from the original repo:
+Below are few planned changes from the original repo:
 
 * The repo initially had a commercial license clause, but the owner has kindly agreed to release under MIT to keep this project alive.
 * I'll leave the license related code intact to let people that wish to use and license their work to their clients (I might provide an option to enable or disable licensing, in the future).However, you are free to hide or remove the code/backlinks under the terms of MIT license. 
 * This project will live longer as I'm planning to use in my commercial assignments too.
 * All changes and modules I make for my commercial and non-commercial use will be made available in this repo (under MIT license) so feel free to use this CMS as you please. 
 
-Notes from the original repo:
+
+Below Notes are from the original repo:
 
 Batflat
 =======
