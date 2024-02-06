@@ -9,6 +9,13 @@ Below are few planned changes from the original repo:
 * This project will live longer as I'm planning to use in my commercial assignments too.
 * All changes and modules I make for my commercial and non-commercial use will be made available in this repo (under MIT license) so feel free to use this CMS as you please. 
 
+This is how the repo will be organized:
+
+* All requests, issues, planned features will be managed via "Issues" to better manage the TODO list.
+* If you have issues or feature requests, please create an issue for the same.
+* The issues will be cleared in priority order. Serious bugs first, minor bugs, reworks and feature enhancements next, major features last. However, the priority may move up or down based on the need.
+* I don't have a specific release schedule at this point (as I'm working on multiple projects) but will update this repo regularly and keep it active.
+ 
 
 Below Notes are from the original repo:
 
