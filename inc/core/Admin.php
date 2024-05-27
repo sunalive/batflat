@@ -65,7 +65,7 @@ class Admin extends Main
         $this->assign['path']          = url();
         $this->assign['version']       = $this->settings->get('settings.version');
         $this->assign['has_update']    = $this->module ? $this->module->settings->_checkUpdate() : false;
-        $this->assign['update_access'] = ($access == 'all') || in_array('settings', explode(',', $access)) ? true : false;
+        $this->assign['update_access'] = !empty($access) ? (($access == 'all') || in_array('settings', explode(',', $access)) ? true : false):'';
 
         $this->assign['header'] = isset_or($this->appends['header'], ['']);
         $this->assign['footer'] = isset_or($this->appends['footer'], ['']);
@@ -85,7 +85,7 @@ class Admin extends Main
 
         foreach (glob(MODULES.'/*/lang/admin/'.$language.'.ini') as $file) {
             $base = str_replace($language, 'en_english', $file);
-            $module = str_replace([MODULES.'/', '/lang/admin/'.$language.'.ini'], null, $file);
+            $module = str_replace([MODULES.'/', '/lang/admin/'.$language.'.ini'], '', $file);
             $this->lang[$module] = array_merge(parse_ini_file($base), parse_ini_file($file));
         }
 

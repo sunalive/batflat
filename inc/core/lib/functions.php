@@ -75,10 +75,12 @@ function createSlug($text)
 function htmlspecialchars_array(array $array)
 {
     foreach ($array as $key => $value) {
-        if (is_array($value)) {
-            $array[$key] = htmlspecialchars_array($value);
-        } else {
-            $array[$key] = htmlspecialchars($value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        if(!empty($value)){
+            if (is_array($value)) {
+                $array[$key] = htmlspecialchars_array($value);
+            } else {
+                $array[$key] = htmlspecialchars($value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+            }    
         }
     }
 
@@ -216,7 +218,7 @@ function url($data = null)
         return $data;
     }
 
-    if (!is_array($data) && strpos($data, '#') === 0) {
+    if (!empty($data) && !is_array($data) && strpos($data, '#') === 0) {
         return $data;
     }
 
@@ -236,7 +238,7 @@ function url($data = null)
     if (is_array($data)) {
         $url = $url.'/'.implode('/', $data);
     } elseif ($data) {
-        $data = str_replace(BASE_DIR.'/', null, $data);
+        $data = str_replace(BASE_DIR.'/', '', $data);
         $url = $url.'/'.trim($data, '/');
     }
 
@@ -257,7 +259,7 @@ function domain($with_protocol = true, $cut_www = false)
     $url = parse_url(url());
 
     if ($cut_www && strpos($url['host'], 'www.') === 0) {
-        $host = str_replace('www.', null, $url['host']);
+        $host = str_replace('www.', '', $url['host']);
     } else {
         $host = $url['host'];
     }
@@ -275,7 +277,7 @@ function domain($with_protocol = true, $cut_www = false)
  * @return string
  */
 function batflat_dir() {
-    return dirname(str_replace(ADMIN, null, $_SERVER['SCRIPT_NAME']));
+    return dirname(str_replace(ADMIN, '', $_SERVER['SCRIPT_NAME']));
 }
 
 /**
@@ -401,7 +403,7 @@ function str_gen($length, $characters = "1234567890qwertyuiopasdfghjklzxcvbnmQWE
 /**
  * Compressed base64_encode
  *
- * @param strin $string
+ * @param string $string
  *
  * @return string
  */
