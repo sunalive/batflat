@@ -72,8 +72,8 @@ class Site extends SiteModule
             $lang = basename($lang);
             $result[] = [
                 'dir'   => $lang,
-                'name'  => mb_strtoupper(preg_replace('/_[a-z]+/', null, $lang)),
-                'symbol'=> preg_replace('/_[a-z]+/', null, $lang),
+                'name'  => mb_strtoupper(preg_replace('/_[a-z]+/', '', $lang)),
+                'symbol'=> preg_replace('/_[a-z]+/', '', $lang),
                 'attr'  => (($selected ? $selected : $this->core->lang['name']) == $lang) ? $attr : null
             ];
         }

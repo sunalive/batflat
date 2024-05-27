@@ -59,6 +59,13 @@ class BaseModule
     protected $lang;
 
     /**
+     * Dynamic properties pre-defined
+     *
+     * @var string
+     */
+    protected $router;
+
+    /**
      * Module constructor
      *
      * @param Inc\Core\Main $core
@@ -71,7 +78,7 @@ class BaseModule
         $this->router = $core->router;
         $this->settings = $core->settings;
         $this->lang = $core->lang;
-        $this->name = strtolower(str_replace(['Inc\Modules\\', '\\Admin', '\\Site'], null, static::class));
+        $this->name = strtolower(str_replace(['Inc\Modules\\', '\\Admin', '\\Site'], '', static::class));
     }
 
     /**
